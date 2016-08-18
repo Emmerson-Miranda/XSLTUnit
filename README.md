@@ -56,7 +56,7 @@ _________
 
 
 
-# Where apply XSLTUnit
+# Where use XSLTUnit
 _________
 
 For example in SOA projects who use lots of XSLTs and needs validate the outputs against WSDLs or XSDs without need the servers started.
