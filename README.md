@@ -13,6 +13,8 @@ XSLTUnit comes with a Maven archetype to create projects easily.
 
 `mvn archetype:generate -B -DarchetypeGroupId=org.emmerson.xsltunit.maven.archetype -DarchetypeArtifactId=xsltunit-maven-archetype -DarchetypeVersion=1.0.0 -DgroupId=org.xsltunit.example -DartifactId=xsltunit-prj1`
 
+By default the archetype generate a set of examples and provide an example of configuration working out-of-the-box.
+
 
 ### Structure of a XSLTUnit project
 
