@@ -3,7 +3,7 @@ _________
 
 This project allow validate XSLT outputs against XSD files and inspect results as a JUnit reports. The below image show the output in Eclipse by just click on "xslt-junit-results.xml" file.
 
-![Output example](./junit-output.png)
+![Output example](./images/junit-output.png)
 
 
 
@@ -16,7 +16,7 @@ XSLTUnit comes with a Maven archetype to create projects easily.
 
 ### Structure of a XSLTUnit project
 
-![Structure example](./project_structure.png)
+![Structure example](./images/project_structure.png)
 
 By default all the files (XSLT, XSD and XMLs) will be under src/main/resources folder and can be organized in folders.
 
@@ -26,11 +26,11 @@ By default all the files (XSLT, XSD and XMLs) will be under src/main/resources f
 
 The file "xsltunit-definition.xml" store the association between our XSLT, XSD and XML files and the root element is *xsltunit* and it can contains severals suites.
 
-![Structure example](./xsd_root.png)
+![Structure example](./images/xsd_root.png)
 
 Each *suite* have a "key"(showed in JUnit report) a "description" and can store multiple tests.
 
-![Structure example](./xsd_suite.png)
+![Structure example](./images/xsd_suite.png)
 
 Each *test* have a "key"(showed in JUnit report) a "description" and other properties like:
 
@@ -39,7 +39,7 @@ Each *test* have a "key"(showed in JUnit report) a "description" and other prope
 * xml - XML sources to be used by the XSLT file (support Ant file selector expression)
 
 
-![Structure example](./xsd_test.png)
+![Structure example](./images/xsd_test.png)
 
 
 # How to work with XSLTUnit
@@ -54,5 +54,11 @@ _________
 6. If the results of run your XSLT are OK you will get a "BUIL SUCCESS", if not you will get an error.
 7. Analize the results inspecting the "xslt-junit-results.xml" file.
 
+
+
+# Where apply XSLTUnit
+_________
+
+For example in SOA projects who use lots of XSLTs and needs validate the outputs against WSDLs or XSDs.
 
  
