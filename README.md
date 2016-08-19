@@ -65,8 +65,9 @@ For example in SOA projects who use lots of XSLTs and needs validate the outputs
 
 # Download and install
 
-Apologize is pending ...
+```bash
+git clone https://github.com/Emmerson-Miranda/XSLTUnit.git
+cd XSLTUnit/XSLTUnit
+mvn install
+```
 
-# Build locally
-
-Apologize is pending ...
