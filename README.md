@@ -48,8 +48,34 @@ Each *test* have a "key"(showed in JUnit report) a "description" and other prope
 * xsd - path to a concrete XSD or set of XSDs (support Ant file selector expression) to be used to validate the output of XSLT file.
 * xml - XML sources to be used by the XSLT file (support Ant file selector expression)
 
-
 ![Structure example](./images/xsd_test.png)
+
+Example:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xsltunit version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Emmerson-Miranda/XSLTUnit/master/xsltunit-definition-1.0.0.xsd">
+	<suite key="test-suite-1" description="Fist suite">
+		<test key="t01-first.xslt" 
+		    xslt="xslt/mozilla/first.xslt" 
+		    xsd="xsd/mozilla/f*.xsd" 
+		    xml-sources="xml/**/f*.xml" 
+		    description="Test one"/>
+		<test key="t02-second.xslt" 
+		    xslt="xslt/mozilla/second.xslt" 
+		    xsd="xsd/mozilla/s*.xsd" 
+		    xml-sources="xml/**/s*.xml" 
+		    description="Test two"/>
+	</suite>
+
+	<suite key="test-suite-2" description="second suite">
+		<test key="t01-person-v1.0.0.xslt" 
+		    xslt="xslt/wikipedia/person-v1.0.0.xslt" 
+		    xsd="xsd/wikipedia/person-v1*.xsd" 
+		    xml-sources="xml/wikipedia/*.xml" 
+		    description="Test mozilla"/>
+	</suite>
+</xsltunit>
+```
 
 
 # How to work with XSLTUnit
