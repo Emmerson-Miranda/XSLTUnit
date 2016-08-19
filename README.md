@@ -57,24 +57,24 @@ Example:
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Emmerson-Miranda/XSLTUnit/master/xsltunit-definition-1.0.0.xsd">
 	<suite key="test-suite-1" description="Fist suite">
-		<test key="t01-first.xslt" 
+		<test key="t01-first.xslt"  description="Test one"
 		    xslt="xslt/mozilla/first.xslt" 
 		    xsd="xsd/mozilla/f*.xsd" 
 		    xml-sources="xml/**/f*.xml" 
-		    description="Test one"/>
-		<test key="t02-second.xslt" 
+		/>
+		<test key="t02-second.xslt" description="Test two"
 		    xslt="xslt/mozilla/second.xslt" 
 		    xsd="xsd/mozilla/s*.xsd" 
 		    xml-sources="xml/**/s*.xml" 
-		    description="Test two"/>
+		/>
 	</suite>
 
 	<suite key="test-suite-2" description="second suite">
-		<test key="t01-person-v1.0.0.xslt" 
+		<test key="t01-person-v1.0.0.xslt" description="Test mozilla" 
 		    xslt="xslt/wikipedia/person-v1.0.0.xslt" 
 		    xsd="xsd/wikipedia/person-v1*.xsd" 
 		    xml-sources="xml/wikipedia/*.xml" 
-		    description="Test mozilla"/>
+		/>
 	</suite>
 </xsltunit>
 ```
