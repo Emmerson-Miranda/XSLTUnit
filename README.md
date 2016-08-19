@@ -70,11 +70,16 @@ Each *test* have a "key"(showed in JUnit report) a "description" and other prope
 For example in SOA projects who use lots of XSLTs and needs validate the outputs against WSDLs or XSDs without need the servers started.
 
 
-# Download and install
+# Download and Install
 
 ```bash
 git clone https://github.com/Emmerson-Miranda/XSLTUnit.git
 cd XSLTUnit/xsltunit
 mvn install
 ```
+
+## Requirements
+
+* Java 1.8
+* Maven 3
 
