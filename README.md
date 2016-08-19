@@ -1,6 +1,6 @@
 # XSLTUnit
 
-This project enable validation of the outputs of XSLT transformations against XSD files and create a JUnit report file, in other words this project allow us validate the results of our XSLTs are full-compliant with their target schemas, or even detect possible problems in production environments when the schemas definition changes.
+This project enable validation of the outputs of XSLT transformations against XSD files and create a JUnit report file, in other words this project allow you validate the results of your XSLTs are full-compliant with their target schemas, or even detect possible problems in production environments when the schemas definition changes.
 
 The below image show the output in Eclipse by just click on *xslt-junit-results.xml* file.
 
@@ -29,12 +29,12 @@ By default all the files (XSLT, XSD and XMLs) will be under *src/main/resources*
 
 ![Structure example](./images/mvn_compile.png)
 
-To analize just run "mvn compile" in our project, after that we can analize the reports and even the outputs of the transformations (have a look in the *target/xslt-outputs*).
+To analize just run "mvn compile" in your project, after that you can analize the reports and even the outputs of the transformations (have a look in the *target/xslt-outputs*).
 
 
 ## Configuration
 
-The file *xsltunit-definition.xml* store the association between our XSLT, XSD and XML files and the root element is *xsltunit* and it can contains severals suites.
+The file *xsltunit-definition.xml* store the association between XSLT, XSD and XML files and the root element is *xsltunit* and it can contains severals suites.
 
 ![Structure example](./images/xsd_root.png)
 
