@@ -67,7 +67,7 @@ For example in SOA projects who use lots of XSLTs and needs validate the outputs
 
 ```bash
 git clone https://github.com/Emmerson-Miranda/XSLTUnit.git
-cd XSLTUnit/XSLTUnit
+cd XSLTUnit/xsltunit
 mvn install
 ```
 
