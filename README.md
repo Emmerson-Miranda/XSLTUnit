@@ -1,5 +1,4 @@
 # XSLTUnit
-_________
 
 This project allow validate the outputs of XSLT transformations against XSD files and create a JUnit report file. The below image show the output in Eclipse by just click on *xslt-junit-results.xml* file.
 
@@ -45,7 +44,6 @@ Each *test* have a "key"(showed in JUnit report) a "description" and other prope
 
 
 # How to work with XSLTUnit
-_________
 
 
 1. Create the project with XSLTUnit maven archetype
@@ -59,13 +57,11 @@ _________
 
 
 # Where use XSLTUnit
-_________
 
 For example in SOA projects who use lots of XSLTs and needs validate the outputs against WSDLs or XSDs without need the servers started.
 
 
 
 # Download and install
-_________
 
 Apologize is pending ...
