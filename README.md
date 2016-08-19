@@ -23,7 +23,7 @@ By default the archetype generate a project with a set of examples and configura
 
 ![Structure example](./images/project_structure.png)
 
-By default all the files (XSLT, XSD and XMLs) will be under *src/main/resources* folder and can be organized in folders.
+By default all the files (XSLT, XSD and XMLs) will be under *src/main/resources* folder and can be organized in folders as you need.
 
 ### Analizing results
 
