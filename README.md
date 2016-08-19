@@ -10,7 +10,9 @@ This project allow validate the outputs of XSLT transformations against XSD file
 
 XSLTUnit comes with a Maven archetype to create projects easily.
 
-`mvn archetype:generate -B -DarchetypeGroupId=org.emmerson.xsltunit.maven.archetype -DarchetypeArtifactId=xsltunit-maven-archetype -DarchetypeVersion=1.0.0 -DgroupId=org.xsltunit.example -DartifactId=xsltunit-prj1`
+```bash
+mvn archetype:generate -B -DarchetypeGroupId=org.emmerson.xsltunit.maven.archetype -DarchetypeArtifactId=xsltunit-maven-archetype -DarchetypeVersion=1.0.0 -DgroupId=org.xsltunit.example -DartifactId=xsltunit-prj1
+```
 
 By default the archetype generate a project with a set of examples and configuration working out-of-the-box.
 
@@ -61,7 +63,10 @@ Each *test* have a "key"(showed in JUnit report) a "description" and other prope
 For example in SOA projects who use lots of XSLTs and needs validate the outputs against WSDLs or XSDs without need the servers started.
 
 
-
 # Download and install
+
+Apologize is pending ...
+
+# Build locally
 
 Apologize is pending ...
