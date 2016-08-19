@@ -53,7 +53,9 @@ Each *test* have a "key"(showed in JUnit report) a "description" and other prope
 Example:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
-<xsltunit version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Emmerson-Miranda/XSLTUnit/master/xsltunit-definition-1.0.0.xsd">
+<xsltunit version="1.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Emmerson-Miranda/XSLTUnit/master/xsltunit-definition-1.0.0.xsd">
 	<suite key="test-suite-1" description="Fist suite">
 		<test key="t01-first.xslt" 
 		    xslt="xslt/mozilla/first.xslt" 
