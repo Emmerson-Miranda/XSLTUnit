@@ -13,7 +13,7 @@ The below image show the output in Eclipse by just click on *xslt-junit-results.
 XSLTUnit comes with a Maven archetype to create projects easily.
 
 ```bash
-mvn archetype:generate -B -DarchetypeGroupId=org.emmerson.xsltunit.maven.archetype -DarchetypeArtifactId=xsltunit-maven-archetype -DarchetypeVersion=1.0.0 -DgroupId=org.xsltunit.example -DartifactId=xsltunit-prj1
+mvn archetype:generate -DgroupId=org.xsltunit.example -DartifactId=xsltunit-prj1 -B -DarchetypeGroupId=org.emmerson.xsltunit.maven.archetype -DarchetypeArtifactId=xsltunit-maven-archetype -DarchetypeVersion=1.0.0
 ```
 
 By default the archetype generate a project with a set of examples and configuration working out-of-the-box.
