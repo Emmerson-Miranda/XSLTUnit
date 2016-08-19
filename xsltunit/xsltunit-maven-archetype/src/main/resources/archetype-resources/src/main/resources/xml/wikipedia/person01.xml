@@ -1,0 +1,16 @@
+#set( $symbol_pound = '#' )
+#set( $symbol_dollar = '$' )
+#set( $symbol_escape = '\' )
+<?xml version="1.0" ?>
+<persons>
+  <person username="JS1">
+    <name>John</name>
+    <family-name>Smith</family-name>
+    <age>30</age>
+  </person>
+  <person username="MI1">
+    <name>Morka</name>
+    <family-name>Ismincius</family-name>
+    <age>35</age>
+  </person>
+</persons>
