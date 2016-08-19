@@ -29,7 +29,7 @@ By default all the files (XSLT, XSD and XMLs) will be under *src/main/resources*
 
 ![Structure example](./images/mvn_compile.png)
 
-To analize just run "mvn compile" in our project, after that we can analize the reports and even the outputs of the transformations (have a look in the *tarjet/xslt-outputs*).
+To analize just run "mvn compile" in our project, after that we can analize the reports and even the outputs of the transformations (have a look in the *target/xslt-outputs*).
 
 
 ## Configuration
