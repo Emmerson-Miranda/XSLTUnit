@@ -28,9 +28,9 @@ public class XsltUnitMavenLifecycleParticipant extends AbstractMavenLifecyclePar
 
     @Override
     public void afterProjectsRead( MavenSession session ) throws MavenExecutionException {
-    	XsltVerifierMaven ver = new XsltVerifierMaven();
 		try {
 			logger.info("START XSLT UNIT");
+			XsltVerifierMaven ver = new XsltVerifierMaven(session);
 			ver.run();
 		} catch (Throwable t) {
 			throw new MavenExecutionException("XSLTUnit found an error", t);

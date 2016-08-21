@@ -13,12 +13,14 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
+import org.apache.maven.execution.MavenSession;
 import org.apache.tools.ant.DirectoryScanner;
+import org.codehaus.plexus.util.StringUtils;
 import org.emmerson.xsltunit.core.XsltUnitException;
 import org.emmerson.xsltunit.core.XsltVerifier;
-import org.emmerson.xsltunit.core.jaxb.config.XSLTUnitObjectFactory;
 import org.emmerson.xsltunit.core.jaxb.config.Suite;
 import org.emmerson.xsltunit.core.jaxb.config.Test;
+import org.emmerson.xsltunit.core.jaxb.config.XSLTUnitObjectFactory;
 import org.emmerson.xsltunit.core.jaxb.config.Xsltunit;
 import org.emmerson.xsltunit.core.jaxb.junit.JUnitObjectFactory;
 import org.emmerson.xsltunit.core.jaxb.junit.Testsuites;
@@ -33,7 +35,29 @@ import org.emmerson.xsltunit.core.jaxb.junit.ts.Testsuite;
  */
 public class XsltVerifierMaven {
 
-	private static final String ROOT = "src/main/resources/";
+	/**
+	 * Root directory where start to search the files
+	 */
+	private String rootDir = "src/main/resources/";
+	
+
+	/**
+	 * Default constructor requires the current maven session.
+	 * @param session
+	 */
+	public XsltVerifierMaven(MavenSession session) throws XsltUnitException {
+		String tmp = session.getCurrentProject().getProperties().getProperty("xsltunit.root");
+		
+		if(!StringUtils.isEmpty(tmp)){
+			tmp = tmp + File.separator;
+			File f = new File(tmp);
+			if(f.exists() && f.isDirectory()){
+				rootDir = tmp;
+			}else{
+				throw new XsltUnitException("Directory not exist: " + f.getAbsolutePath());
+			}
+		}
+	}
 
 	/**
 	 * Run the validation of project files
@@ -44,7 +68,7 @@ public class XsltVerifierMaven {
 		Testsuites tss = jof.createTestsuites();
 		boolean error = false;
 		try {
-			File file = new File(ROOT + "xsltunit-definition.xml");
+			File file = new File("src/main/resources/xsltunit-definition.xml");
 			JAXBContext jaxbContext = JAXBContext.newInstance(XSLTUnitObjectFactory.class);
 			Unmarshaller u = jaxbContext.createUnmarshaller();
 			Xsltunit xu = (Xsltunit) u.unmarshal(file);	
@@ -79,35 +103,38 @@ public class XsltVerifierMaven {
 	}
 
 	private boolean runTestSuite(JUnitObjectFactory jof,
-			Suite s, Testsuites.Testsuite ts, Test t) {
+			Suite s, Testsuites.Testsuite ts, Test t) throws XsltUnitException{
 		
 		boolean error = false;
 		Testsuite.Testcase tc = jof.createTestsuiteTestcase();
 		tc.setClassname("XSLTUnit");
 		tc.setName(t.getKey());
 		
-		XsltVerifier poc = new XsltVerifier(s.getKey(), t.getKey());
-		File xslt = new File(ROOT + t.getXslt());
-		File []xsd = getFiles(ROOT, t.getXsd());
-		String[] files = getListFiles(ROOT, t.getXmlSources());
-		for (String filename : files) {
-			if( runTestCase(jof, s, ts, t, tc, poc, xslt, xsd, filename) ){
-				error = true;
-			}
+		if( runTestCase(jof, s, ts, t, tc) ){
+			error = true;
 		}
+
 		ts.getTestcase().add(tc);
 		return error;
 	}
 
 	private boolean runTestCase(JUnitObjectFactory jof,
 			Suite s, Testsuites.Testsuite ts, Test t,
-			Testsuite.Testcase tc, XsltVerifier poc, File xslt, File[] xsd,
-			String filename) {
+			Testsuite.Testcase tc) {
 		boolean error = false;
-		File xml = new File(ROOT + filename);
 		long ini = System.currentTimeMillis();
 		try {
-			poc.verifyXSLT(xslt, xml, xsd);
+			XsltVerifier xv = new XsltVerifier(s.getKey(), t.getKey());
+			File xslt = new File(rootDir + t.getXslt());
+			File []xsd = getFiles(rootDir, t.getXsd());
+			String[] files = getListFiles(rootDir, t.getXmlSources());
+
+			for (String filename : files) {
+				File xml = new File(rootDir + filename);
+				xv.verifyXSLT(xslt, xml, xsd);
+			}
+			
+			
 		} catch (XsltUnitException th) {
 			Testsuite.Testcase.Error f = jof.createTestsuiteTestcaseError();
 			f.setMessage(th.getMessage());
@@ -124,23 +151,28 @@ public class XsltVerifierMaven {
 		}
 		return error;
 	}
-
-	private String[] getListFiles(String baseDir, String filtro) {
-		DirectoryScanner scanner = new DirectoryScanner();
-		scanner.setIncludes(new String[] { filtro });
-		scanner.setBasedir(new File(baseDir));
-		scanner.setCaseSensitive(false);
-		scanner.scan();
-		return scanner.getIncludedFiles();
-	}
 	
-	private File[] getFiles(String baseDir, String filter) {
+	private File[] getFiles(String baseDir, String filter) throws XsltUnitException {
 		String[] files = getListFiles(baseDir, filter);
 		List<File> tmp = new ArrayList<File>();
 		for(String f : files){
 			tmp.add(new File(baseDir + f));
 		}
 		return tmp.toArray(new File[]{});
+	}
+	
+	private String[] getListFiles(String baseDir, String filter) throws XsltUnitException {
+		DirectoryScanner scanner = new DirectoryScanner();
+		scanner.setIncludes(new String[] { filter });
+		scanner.setBasedir(new File(baseDir));
+		scanner.setCaseSensitive(false);
+		scanner.scan();
+		
+		String[] res = scanner.getIncludedFiles();
+		if(res.length < 1){
+			throw new XsltUnitException("Files not found in \"" + baseDir + "\" pattern " + filter);
+		}
+		return res;
 	}
 	
 	public static String getStackTrace(Throwable aThrowable) {
