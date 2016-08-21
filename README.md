@@ -34,7 +34,7 @@ To analize just run "mvn compile" in your project, after that you can analize th
 
 ## Configuration
 
-The file *xsltunit-definition.xml* store the association between XSLT, XSD and XML files and the root element is *xsltunit* and it can contains severals suites.
+The file *src/main/resources/xsltunit-definition.xml* store the association between XSLT, XSD and XML files and the root element is *xsltunit* and it can contains severals suites.
 
 ![Structure example](./images/xsd_root.png)
 
