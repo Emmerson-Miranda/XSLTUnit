@@ -7,12 +7,6 @@
 	<name>xsltunit</name>
 	<packaging>pom</packaging>
 
-	<contributors>
-		<contributor>
-			<name>Emmerson Miranda</name>
-		</contributor>
-	</contributors>
-
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
@@ -46,4 +40,17 @@
 		</plugins>
 	</build>
 
+	<developers>
+		<developer>
+			<name>Emmerson Miranda</name>
+			<url>https://github.com/Emmerson-Miranda/XSLTUnit</url>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>Apache License Version 2.0, January 2004</name>
+			<url>https://github.com/Emmerson-Miranda/XSLTUnit/blob/master/LICENSE</url>
+		</license>
+	</licenses>
 </project>
