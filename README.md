@@ -79,6 +79,17 @@ Example:
 </xsltunit>
 ```
 
+### Changing *src/main/resources*
+
+If you have your XSLT, XSD and XMLs located in other folder, you can specify that adding the property *xsltunit.root* to your *pom.xml*.
+
+```xml
+  <properties>
+  	<xsltunit.root>C:\anotherPath\xsltunit-prj1</xsltunit.root>
+  </properties>
+```
+
+
 
 # How to work with XSLTUnit
 
