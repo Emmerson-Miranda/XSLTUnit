@@ -1,4 +1,4 @@
-# XSLTUnit
+# XSLTUnit (XSLT Unit testing)
 
 This project enable validation of the outputs of XSLT transformations against XSD files and create a JUnit report file, in other words this project allow you validate the results of your XSLTs are full-compliant with their target schemas, or even detect possible problems in production environments when the schemas definition changes.
 
