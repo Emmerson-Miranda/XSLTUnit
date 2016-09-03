@@ -79,6 +79,22 @@ Example:
 </xsltunit>
 ```
 
+Example with JSON instead of XML files:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<xsltunit version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Emmerson-Miranda/XSLTUnit/master/xsltunit-definition-1.0.0.xsd">
+
+	<suite key="test-suite-1" description="Fist suite">
+		<test key="t01-first.xslt" 
+		      xslt="xslt/mozilla/first.xslt" 
+		      xsd="xsd/mozilla/f*.xsd" 
+		      json-sources="json/**/f*.json"  
+		      description="Test one"/>
+	</suite>
+
+</xsltunit>
+```
+
 ### Changing *src/main/resources*
 
 If you have your XSLT, XSD and XMLs located in other folder, you can specify that adding the property *xsltunit.root* to your *pom.xml*.
