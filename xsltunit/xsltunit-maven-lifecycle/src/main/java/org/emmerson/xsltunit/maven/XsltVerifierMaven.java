@@ -1,10 +1,14 @@
 package org.emmerson.xsltunit.maven;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.math.BigDecimal;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +29,7 @@ import org.emmerson.xsltunit.core.jaxb.config.Xsltunit;
 import org.emmerson.xsltunit.core.jaxb.junit.JUnitObjectFactory;
 import org.emmerson.xsltunit.core.jaxb.junit.Testsuites;
 import org.emmerson.xsltunit.core.jaxb.junit.ts.Testsuite;
+import org.emmerson.xsltunit.maven.json.ConvertToXml;
 
 /**
  * Read the file xsltunit-definition.xml and run all verifications defined. This
@@ -125,12 +130,15 @@ public class XsltVerifierMaven {
 		long ini = System.currentTimeMillis();
 		try {
 			XsltVerifier xv = new XsltVerifier(s.getKey(), t.getKey());
-			File xslt = new File(rootDir + t.getXslt());
+			File xslt = getFiles(rootDir, t.getXslt())[0];
 			File []xsd = getFiles(rootDir, t.getXsd());
-			String[] files = getListFiles(rootDir, t.getXmlSources());
+			
+			File[] files = getXmlFilesFromJson(rootDir, t.getJsonSources(), t.getJsonXmlRoot());
+			if (files == null || files.length < 1){
+				files = getFiles(rootDir, t.getXmlSources());
+			}
 
-			for (String filename : files) {
-				File xml = new File(rootDir + filename);
+			for (File xml : files) {
 				xv.verifyXSLT(xslt, xml, xsd);
 			}
 			
@@ -152,6 +160,31 @@ public class XsltVerifierMaven {
 		return error;
 	}
 	
+	private File[] getXmlFilesFromJson(String rootDir, String jsonSources, String jsonXmlRoot) {
+		if(StringUtils.isEmpty(jsonSources)){
+			return null;
+		}
+		List<File> res = new ArrayList<File>();
+		try{
+			File []jsonFiles = getFiles(rootDir, jsonSources);
+			if(jsonFiles != null && jsonFiles.length > 0){
+				for(File j : jsonFiles){
+					File f = new File(j.getAbsolutePath() + ".xml");
+					if(!f.exists()){
+						f.createNewFile();
+						String content = new String(Files.readAllBytes(Paths.get(j.getAbsolutePath())));
+						ConvertToXml.convertToXML(content, new PrintStream(f), jsonXmlRoot);
+					}
+					res.add(f);
+				}
+			}
+		}catch(XsltUnitException | IOException e){
+			return null;
+		}
+		return res.toArray(new File[]{});
+		
+	}
+
 	private File[] getFiles(String baseDir, String filter) throws XsltUnitException {
 		String[] files = getListFiles(baseDir, filter);
 		List<File> tmp = new ArrayList<File>();

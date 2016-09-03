@@ -37,8 +37,12 @@ public class Test {
     protected String description;
     @XmlAttribute(name = "key", required = true)
     protected String key;
-    @XmlAttribute(name = "xml-sources", required = true)
+    @XmlAttribute(name = "xml-sources", required = false)
     protected String xmlSources;
+    @XmlAttribute(name = "json-sources", required = false)
+    protected String jsonSources;
+    @XmlAttribute(name = "json-xml-root", required = false)
+    protected String jsonXmlRoot;
     @XmlAttribute(name = "xsd", required = true)
     protected String xsd;
     @XmlAttribute(name = "xslt", required = true)
@@ -103,6 +107,14 @@ public class Test {
     public String getXmlSources() {
         return xmlSources;
     }
+    
+    public String getJsonSources() {
+        return jsonSources;
+    }
+    
+    public String getJsonXmlRoot() {
+        return jsonXmlRoot;
+    }
 
     /**
      * Sets the value of the xmlSources property.
@@ -114,6 +126,14 @@ public class Test {
      */
     public void setXmlSources(String value) {
         this.xmlSources = value;
+    }
+    
+    public void setJsonSources(String value) {
+        this.jsonSources = value;
+    }
+    
+    public void setJsonXmlRoot(String value) {
+        this.jsonXmlRoot = value;
     }
 
     /**

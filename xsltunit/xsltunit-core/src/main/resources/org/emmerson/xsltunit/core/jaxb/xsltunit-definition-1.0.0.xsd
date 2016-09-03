@@ -21,7 +21,9 @@
     <xs:complexType>
       <xs:attribute name="description" use="required" type="xs:string"/>
       <xs:attribute name="key" use="required" type="xs:string"/>
-      <xs:attribute name="xml-sources" use="required" type="xs:string"/>
+      <xs:attribute name="xml-sources" use="optional" type="xs:string"/>
+      <xs:attribute name="json-sources" use="optional" type="xs:string"/>
+      <xs:attribute name="json-xml-root" use="optional" type="xs:string"/>
       <xs:attribute name="xsd" use="required" type="xs:string"/>
       <xs:attribute name="xslt" use="required" type="xs:string"/>
     </xs:complexType>
