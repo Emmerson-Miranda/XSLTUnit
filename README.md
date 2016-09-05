@@ -10,8 +10,6 @@ The below image show the output in Eclipse by just click on *xslt-junit-results.
 
 ### Structure proposed to a XSLTUnit project
 
-![Structure example](./images/project_structure.png)
-
 By default all the files (XSLT, XSD and XMLs) will be under *src/main/resources* folder and can be organized in folders as you need.
 
 ### Analizing results
