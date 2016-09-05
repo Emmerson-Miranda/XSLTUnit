@@ -21,11 +21,11 @@ To analize just run "mvn compile" in your project, after that you can analize th
 
 # How to work with XSLTUnit
 
-1. Create the project with XSLTUnit maven archetype
+1. Create the project with XSLTUnit maven archetype.
 2. Organize your XSD and XML files in folders under *src/main/resources* 
-3. Create your XSLT files
+3. Create your XSLT files.
 4. Configure the file *xsltunit-definition.xml* to make the associations among the files.
-5. From command line console, go to your root folder project and run "mvn compile"
+5. From command line console, go to your root folder project and run "mvn compile".
 6. If the results of run your XSLT are OK you will get a "BUILD SUCCESS", if not you will get an error.
 7. Analize the results inspecting the *xslt-junit-results.xml* file.
 
@@ -51,4 +51,4 @@ mvn install
 
 
 # More info
-Please review wiki pages
+Please review wiki pages.
