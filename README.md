@@ -4,40 +4,9 @@ This project enable validation of the outputs of XSLT transformations against XS
 
 This project support JSON files a source files converting all of them to XML files.
 
-**Structure proposed to a XSLTUnit project**
-
-By default all the files (XSLT, XSD and XMLs) will be under *src/main/resources* folder and can be organized in folders as you need.
-
-# How to work with XSLTUnit
-
-1. Create the project with XSLTUnit maven archetype.
-2. Organize your XSD and XML files in folders under *src/main/resources* 
-3. Create your XSLT files.
-4. Configure the file *xsltunit-definition.xml* to make the associations among the files.
-5. From command line console, go to your root folder project and run "mvn compile".
-6. If the results of run your XSLT are OK you will get a "BUILD SUCCESS", if not you will get an error.
-7. Analize the results inspecting the *xslt-junit-results.xml* file.
-
-
-
-# Where use XSLTUnit
+## Where use XSLTUnit
 
 For example in SOA projects who use lots of XSLTs and needs validate the outputs against WSDLs or XSDs without need the servers started.
 
-
-# Download and Install
-
-```bash
-git clone https://github.com/Emmerson-Miranda/XSLTUnit.git
-cd XSLTUnit/xsltunit
-mvn install
-```
-
-## Requirements
-
-* Java 1.8
-* Maven 3
-
-
-# More info
+## More info
 Please review wiki pages.
