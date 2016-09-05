@@ -21,55 +21,7 @@ By default all the files (XSLT, XSD and XMLs) will be under *src/main/resources*
 To analize just run "mvn compile" in your project, after that you can analize the reports and even the outputs of the transformations (have a look in the *target/xslt-outputs*).
 
 
-## Configuration
-
-The file *src/main/resources/xsltunit-definition.xml* store the association between XSLT, XSD and XML files and the root element is *xsltunit* and it can contains severals suites.
-
-![Structure example](./images/xsd_root.png)
-
-Each *suite* have a "key"(showed in JUnit report) a "description" and can store multiple tests.
-
-![Structure example](./images/xsd_suite.png)
-
-Each *test* have a "key"(showed in JUnit report) a "description" and other properties like:
-
-* xslt - path to a concrete XSLT file (file under test)
-* xsd - path to a concrete XSD or set of XSDs (support Ant file selector expression) to be used to validate the output of XSLT file.
-* xml - XML sources to be used by the XSLT file (support Ant file selector expression)
-
-![Structure example](./images/xsd_test.png)
-
-Example:
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<xsltunit version="1.0" 
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Emmerson-Miranda/XSLTUnit/master/xsltunit-definition-1.0.0.xsd">
-	<suite key="test-suite-1" description="Fist suite">
-		<test key="t01-first.xslt"  description="Test one"
-		    xslt="xslt/mozilla/first.xslt" 
-		    xsd="xsd/mozilla/f*.xsd" 
-		    xml-sources="xml/**/f*.xml" 
-		/>
-		<test key="t02-second.xslt" description="Test two"
-		    xslt="xslt/mozilla/second.xslt" 
-		    xsd="xsd/mozilla/s*.xsd" 
-		    xml-sources="xml/**/s*.xml" 
-		/>
-	</suite>
-
-	<suite key="test-suite-2" description="second suite">
-		<test key="t01-person-v1.0.0.xslt" description="Test mozilla" 
-		    xslt="xslt/wikipedia/person-v1.0.0.xslt" 
-		    xsd="xsd/wikipedia/person-v1*.xsd" 
-		    xml-sources="xml/wikipedia/*.xml" 
-		/>
-	</suite>
-</xsltunit>
-```
-
 # How to work with XSLTUnit
-
 
 1. Create the project with XSLTUnit maven archetype
 2. Organize your XSD and XML files in folders under *src/main/resources* 
