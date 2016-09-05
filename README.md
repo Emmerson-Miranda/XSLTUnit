@@ -2,22 +2,11 @@
 
 This project enable validation of the outputs of XSLT transformations against XSD files and create a JUnit report file, in other words this project allow you validate the results of your XSLTs are full-compliant with their target schemas, or even detect possible problems in production environments when the schemas definition changes.
 
+This project support JSON files a source files converting all of them to XML files.
+
 The below image show the output in Eclipse by just click on *xslt-junit-results.xml* file.
 
 ![Output example](./images/junit-output.png)
-
-
-
-## Generating XSLTUnit projects
-
-XSLTUnit comes with a Maven archetype to create projects easily.
-
-```bash
-mvn archetype:generate -DgroupId=org.xsltunit.example -DartifactId=xsltunit-prj1 -B -DarchetypeGroupId=org.emmerson.xsltunit.maven.archetype -DarchetypeArtifactId=xsltunit-maven-archetype -DarchetypeVersion=1.0.0
-```
-
-By default the archetype generate a project with a set of examples and configuration working out-of-the-box.
-
 
 ### Structure of a XSLTUnit project
 
@@ -79,34 +68,6 @@ Example:
 </xsltunit>
 ```
 
-Example with JSON instead of XML files:
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<xsltunit version="1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/Emmerson-Miranda/XSLTUnit/master/xsltunit-definition-1.0.0.xsd">
-
-	<suite key="test-suite-1" description="Fist suite">
-		<test key="t01-first.xslt" 
-		      xslt="xslt/mozilla/first.xslt" 
-		      xsd="xsd/mozilla/f*.xsd" 
-		      json-sources="json/**/f*.json"  
-		      description="Test one"/>
-	</suite>
-
-</xsltunit>
-```
-
-### Changing *src/main/resources*
-
-If you have your XSLT, XSD and XMLs located in other folder, you can specify that adding the property *xsltunit.root* to your *pom.xml*.
-
-```xml
-  <properties>
-  	<xsltunit.root>C:\anotherPath\xsltunit-prj1</xsltunit.root>
-  </properties>
-```
-
-
-
 # How to work with XSLTUnit
 
 
@@ -138,3 +99,6 @@ mvn install
 * Java 1.8
 * Maven 3
 
+
+# More info
+Please review wiki pages
