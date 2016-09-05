@@ -8,7 +8,7 @@ The below image show the output in Eclipse by just click on *xslt-junit-results.
 
 ![Output example](./images/junit-output.png)
 
-### Structure of a XSLTUnit project
+### Structure proposed to an XSLTUnit project
 
 ![Structure example](./images/project_structure.png)
 
