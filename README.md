@@ -4,20 +4,9 @@ This project enable validation of the outputs of XSLT transformations against XS
 
 This project support JSON files a source files converting all of them to XML files.
 
-The below image show the output in Eclipse by just click on *xslt-junit-results.xml* file.
-
-![Output example](./images/junit-output.png)
-
 ### Structure proposed to a XSLTUnit project
 
 By default all the files (XSLT, XSD and XMLs) will be under *src/main/resources* folder and can be organized in folders as you need.
-
-### Analizing results
-
-![Structure example](./images/mvn_compile.png)
-
-To analize just run "mvn compile" in your project, after that you can analize the reports and even the outputs of the transformations (have a look in the *target/xslt-outputs*).
-
 
 # How to work with XSLTUnit
 
