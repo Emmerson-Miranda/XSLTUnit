@@ -4,7 +4,7 @@ This project enable validation of the outputs of XSLT transformations against XS
 
 This project support JSON files a source files converting all of them to XML files.
 
-### Structure proposed to a XSLTUnit project
+**Structure proposed to a XSLTUnit project**
 
 By default all the files (XSLT, XSD and XMLs) will be under *src/main/resources* folder and can be organized in folders as you need.
 
