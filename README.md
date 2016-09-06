@@ -6,7 +6,12 @@ This project support JSON files a source files converting all of them to XML fil
 
 ## Where use XSLTUnit
 
-For example in SOA projects who use lots of XSLTs and needs validate the outputs against WSDLs or XSDs without need the servers started.
+For example in projects which:
+
+* Use lots of XSLTs and needs validate the outputs against WSDLs or XSDs. 
+* You need develop and test your XSLTs without start any server.
+* You need validate the developments as a part of the process (e.g: using Jenkins)
+* To measure the impact of changes when new XSD version comes.
 
 ## More info
 Please review wiki pages.
